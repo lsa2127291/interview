@@ -29,3 +29,4 @@ const sumArray = (arr) => {
 console.log(sumArray([1, [2, 3], [4, [5, 6]]]))
 console.log('fetch')
 console.log('weweewgreg')
+console.log('43423r43as2323')
