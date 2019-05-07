@@ -57,5 +57,4 @@ const asyncFn = (() => {
   return (...args) => _ref(...args)
 })()
 
-
 asyncFn()
