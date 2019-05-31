@@ -11,12 +11,19 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+var Validation;
+(function (Validation) {
+    var numberRegexp = /^[0-9]+$/;
+    var ZipCodeValidator = /** @class */ (function () {
+        function ZipCodeValidator() {
+        }
+        ZipCodeValidator.prototype.isAcceptable = function (s) {
+            return s.length === 5 && numberRegexp.test(s);
+        };
+        return ZipCodeValidator;
+    }());
+    Validation.ZipCodeValidator = ZipCodeValidator;
+})(Validation || (Validation = {}));
 var _b;
 var Space;
 (function (Space) {
@@ -654,105 +661,3 @@ for (var _c = 0, strings_1 = strings; _c < strings_1.length; _c++) {
         console.log("\"" + s + "\" - " + (validators[name_1].isAcceptable(s) ? "matches" : "does not match") + " " + name_1);
     }
 }
-var Shapes;
-(function (Shapes) {
-    var Polygons;
-    (function (Polygons) {
-        var Triangle = /** @class */ (function () {
-            function Triangle() {
-            }
-            return Triangle;
-        }());
-        Polygons.Triangle = Triangle;
-        var Square = /** @class */ (function () {
-            function Square() {
-            }
-            return Square;
-        }());
-        Polygons.Square = Square;
-    })(Polygons = Shapes.Polygons || (Shapes.Polygons = {}));
-})(Shapes || (Shapes = {}));
-var polygons = Shapes.Polygons;
-var sq1 = new polygons.Square(); // Same as "new Shapes.Polygons.Square()"
-// 合并命名空间和函数
-function buildLabel(name) {
-    return buildLabel.prefix + name + buildLabel.suffix;
-}
-(function (buildLabel) {
-    buildLabel.suffix = "";
-    buildLabel.prefix = "Hello, ";
-})(buildLabel || (buildLabel = {}));
-console.log(buildLabel("Sam Smith"));
-// 类不能与其它类或变量合并
-// 模块扩展
-// import { Observable } from "./observable";
-// declare module "./observable" {
-//     interface Observable<T> {
-//         map<U>(f: (x: T) => U): Observable<U>;
-//     }
-// }
-// Observable.prototype.map = function (f) {
-//     // ... another exercise for the reader
-// }
-// // consumer.ts
-// import { Observable } from "./observable";
-// import "./map";
-// let o: Observable<number>;
-// o.map(x => x.toFixed());
-// 装饰器
-function f1() {
-    console.log("f(): evaluated");
-    return function (target, propertyKey, descriptor) {
-        console.log("f(): called");
-    };
-}
-function g() {
-    console.log("g(): evaluated");
-    return function (target, propertyKey, descriptor) {
-        console.log("g(): called");
-    };
-}
-// class C1 {
-//   @f1()
-//   @g()
-//   method() {}
-// }
-function sealed(constructor) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
-}
-var Greeter = /** @class */ (function () {
-    function Greeter(message) {
-        this.greeting = message;
-    }
-    Greeter.prototype.greet = function () {
-        return "Hello, " + this.greeting;
-    };
-    Greeter = __decorate([
-        sealed
-    ], Greeter);
-    return Greeter;
-}());
-function classDecorator(constructor) {
-    return /** @class */ (function (_super) {
-        __extends(class_1, _super);
-        function class_1() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.newProperty = "new property";
-            _this.hello = "override";
-            return _this;
-        }
-        return class_1;
-    }(constructor));
-}
-var Greeter2 = /** @class */ (function () {
-    function Greeter2(m) {
-        this.property = "property";
-        this.hello = m;
-    }
-    Greeter2 = __decorate([
-        classDecorator
-    ], Greeter2);
-    return Greeter2;
-}());
-console.log(new Greeter("world"));
