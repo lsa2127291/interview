@@ -1,19 +1,19 @@
  
-// // function add(...args) {
-// //   let sum = args.reduce((acc, cur) => acc + cur);
-// //   const tmp = function (...args) {
-// //     sum = sum + args.reduce((acc, cur) => acc + cur);
-// //     return tmp;
-// //   };
-// //   tmp.toString = function () {
-// //     return sum;
-// //   };
-// //   tmp.valueOf = function () {
-// //     return sum;
-// //   };
-// //   return tmp;
-// // }
-// // console.log(add(1, 2)(2, 3)(4, 5) + 'fef')
+function add(...args) {
+  let sum = args.reduce((acc, cur) => acc + cur);
+  const tmp = function (...args) {
+    sum = sum + args.reduce((acc, cur) => acc + cur);
+    return tmp;
+  };
+  tmp.toString = function () {
+    return sum;
+  };
+  tmp.valueOf = function () {
+    return sum;
+  };
+  return tmp;
+}
+console.log(add(1, 2)(2, 3)(4, 5))
 // const sumArray = (arr) => {
 //   let arrLen = arr.length
 //   let sum = 0
@@ -39,4 +39,4 @@
 // console.log('wfewfewfqqfds')
 // console.log('44444444444444444444')
 // console.log('666666666666666666666')
-console.log('1234568'.replace(/\B(?=(\d{3})+(?!\d))/g, ','))
+// console.log('1234568'.replace(/\B(?=(\d{3})+(?!\d))/g, ','))

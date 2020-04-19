@@ -94,3 +94,4 @@ function format(formatString) {
 function getFormat(target, propertyKey) {
     return Reflect.getMetadata(formatMetadataKey, target, propertyKey);
 }
+// <?xml version='1.0' encoding='GB2312'?><elXmlIniPlus><Section SectionName='APPAYSAVX'><elXmlProperty><Attribute key='OPRTYPE' value='202' /><Attribute key='BUSTYP' value='0' /><Attribute key='RECNUM' value='23' /><Attribute key='REFNBR' value='fwefewf1232454' /><Attribute key='CLTNBR' value='0001' /><Attribute key='CLIACC' value='755915676410307' /><Attribute key='TRSAMT' value='100.23' /><Attribute key='TRSUSE' value='test' /><Attribute key='REVACC' value='755915676410401' /><Attribute key='REVBNK' value='鎷涘晢閾惰娣卞湷鍒嗚钀ヤ笟閮�' /><Attribute key='REVNAM' value='浼佷笟缃戦摱鏂�20161053' /><Attribute key='REVCIT' value='鎴愰�????' /><Attribute key='BNKTYP' value='CMB' /><Attribute key='OPRMOD' value='3' /><Attribute key='PAYTYP' value='2' /></elXmlProperty></Section></elXmlIniPlus>
